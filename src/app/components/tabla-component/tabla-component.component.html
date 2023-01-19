@@ -1,0 +1,45 @@
+<section class="container mt-4 pt-4">
+  <article class="row d-flex justify-content-center py-4">
+    <article class="col-5">
+      <table class="table table-success table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Paises</th>
+            <th>Telefono</th>
+            <th>Sujeto</th>
+            <th>
+              detalle
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let datos of dataArr; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{datos.nombre}}</td>
+            <td>{{datos.correo}}</td>
+            <td>{{datos.paises}}</td>
+            <td>{{datos.telefono}}</td>
+            <td>{{datos.sujeto}}</td>
+            <td>
+              <!-- <a routerLink="/listado/{{dataArr|json}}/{{datos.paises}}">buscar...</a> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <section class="col-5">
+      <section class="">
+        <label class="form-label">Buscar por Codigo:</label>
+        <input type="number" name="valor" [(ngModel)]="paises" class="form-control">
+
+            <a routerLink="/listado/{{ dataArr | json }}/{{ paises }}" class="btn btn-primary mt-3">Buscar..</a>
+      </section>
+
+    </section>
+  </article>
+</section>
+

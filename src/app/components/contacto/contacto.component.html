@@ -1,0 +1,107 @@
+<section class="container mt-4">
+  <article class="row d-flex justify-content-center py-3">
+    <section class="col-5 py-2 shadow">
+      <form action="" #formulario="ngForm" (ngSubmit)="onSubmit()">
+
+        <!-- Nombre -->
+        <section class="mt-3">
+          <label class="form-label">Nombre:</label>
+          <input type="text" class="form-control" [(ngModel)]="datosReg.nombre"
+          required name="nombre" #nombre="ngModel">
+
+          <section *ngIf="nombre.invalid && (nombre.dirty||nombre.touched)" class="alert alert-danger mt-2">
+            <section *ngIf="nombre.errors?.['required']">
+              El campo es requerido
+            </section>
+            <section *ngIf="nombre.errors?.['minlength']">
+              El campo debe tener como minímo 10 caracteres
+            </section>
+          </section>
+        </section>
+
+
+        <!-- Correo -->
+        <section class="mt-3">
+          <label for="" class="form-label">Correo:</label>
+          <input type="text" class="form-control" [(ngModel)]="datosReg.correo"
+          required name="correo" #correo="ngModel" email="true">
+
+
+          <section *ngIf="correo.invalid && (correo.dirty||correo.touched)" class="alert alert-danger mt-2">
+            <section *ngIf="correo.errors?.['required']">
+              El campo es requerido
+            </section>
+            <section *ngIf="correo.errors?.['email']">
+              completa bien el campo de email
+            </section>
+          </section>
+        </section>
+
+
+        <!-- Telefono -->
+        <section class="mt-3">
+          <label for="" class="form-label">Telefono:</label>
+          <input type="number" class="form-control" [(ngModel)]="datosReg.telefono"
+          required name="telefono" #telefono="ngModel" [minlength]="9">
+
+          <section *ngIf="telefono.invalid && (telefono.dirty||telefono.touched)" class="alert alert-danger mt-2">
+            <section *ngIf="telefono.errors?.['required']">
+              El campo es requerido
+            </section>
+            <section *ngIf="telefono.errors?.['minlength']">
+              El campo debe tener como maximo 9 caracteres
+            </section>
+          </section>
+        </section>
+
+        <section class="mt-3">
+          <label for="pais" class="form-label">Paises:</label>
+          <select name="pais" id="" class="form-control" [(ngModel)]="datosReg.paises">
+            <option *ngFor="let item of dataPAis" value="{{item.value}}">{{item.texto}}</option>
+          </select>
+        </section>
+
+
+        <!-- Sujeto -->
+        <section class="mt-3">
+          <label for="" class="form-label">Sujeto:</label>
+          <input type="text" class="form-control" [(ngModel)]="datosReg.sujeto"
+          required name="sujeto" #sujeto="ngModel">
+
+          <section *ngIf="sujeto.invalid && (sujeto.dirty||sujeto.touched)" class="alert alert-danger mt-2">
+            <section *ngIf="sujeto.errors?.['required']">
+              El campo es requerido
+            </section>
+          </section>
+        </section>
+
+
+        <!-- Text Area -->
+        <section class="mt-3">
+          <label for="" class="form-label">Mensaje:</label>
+          <textarea cols="30" rows="2" class="form-control" [(ngModel)]="datosReg.mensaje"
+          required name="mensaje" #mensaje="ngModel" minlength="4"></textarea>
+
+          <section *ngIf="mensaje.invalid && (mensaje.dirty||mensaje.touched)" class="alert alert-danger mt-2">
+            <section *ngIf="mensaje.errors?.['required']">
+              El campo es requerido
+            </section>
+            <section *ngIf="mensaje.errors?.['minlength']">
+              El campo debe tener como minímo 4 caracteres
+            </section>
+          </section>
+        </section>
+
+        <section class="mt-3 d-flex justify-content-center">
+          <button class="btn btn-outline-success" type="submit" [disabled]="!formulario.valid">Enviar</button>
+        </section>
+      </form>
+    </section>
+
+  </article>
+</section>
+
+
+  <!-- Tabla -->
+  <app-tabla-component [dataArr]="datoArr" [paises]="paises"></app-tabla-component>
+

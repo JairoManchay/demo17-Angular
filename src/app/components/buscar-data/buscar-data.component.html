@@ -1,0 +1,35 @@
+<p>vistalfiltro works!</p>
+<p>Valor enviado desde componente vistafull: {{ pais }}</p>
+
+<section class="container mt-4 pt-4">
+  <article class="row d-flex justify-content-center">
+    <article class="col-6">
+      <table class="table table-success table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Email - Correo</th>
+            <th>Paises</th>
+            <th>Telefono</th>
+            <th>Sujeto</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of arrDatos[0]; let i = index">
+          <tr *ngIf="item.paises==pais"  >
+            <td>{{i+1}}</td>
+            <td>{{item.nombre}}</td>
+            <td>{{item.correo}}</td>
+            <td>{{item.paises}}</td>
+            <td>{{item.telefono}}</td>
+            <td>{{item.sujeto}}</td>
+            <td>
+              <!-- <a routerLink="/listado/{{dataArr|json}}/{{datos.paises}}">buscar...</a> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+  </article>
+</section>
+

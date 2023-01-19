@@ -1,0 +1,16 @@
+.small-icon{
+  width: 70%;
+  height: 70%;
+  margin-top: 35%;
+  color: white;
+}
+
+.caja1{
+  margin-top: 35%;
+  background: gray;
+  color: white;
+}
+
+.caja1 p{
+  text-align: justify;
+}
